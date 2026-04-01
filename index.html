@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyril Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="container">
+    <h2>Welcome Cyril</h2>
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <input type="text" id="phone" placeholder="Enter Phone Number" required>
+        <button type="submit">Login</button>
+    </form>
+    <p id="errorMsg"></p>
+</div>
+
+<!-- PORTFOLIO PAGE -->
+<div id="portfolioPage" class="hidden">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Cyril</h2>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('github')">GitHub</button>
+        <button onclick="showSection('linkedin')">LinkedIn</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- HOME -->
+        <div id="home" class="section active">
+            <img src="your-photo.jpg" class="profile-img">
+            <h1>Cyril P Jose</h1>
+            <p>B.Tech Computer Science</p>
+            <p>St. Joseph's College of Engineering and Technology</p>
+        </div>
+
+        <!-- GITHUB -->
+        <div id="github" class="section">
+            <h1>GitHub Profile</h1>
+            <p>Visit my projects:</p>
+            <a href="https://github.com/" target="_blank">Open GitHub</a>
+        </div>
+
+        <!-- LINKEDIN -->
+        <div id="linkedin" class="section">
+            <h1>LinkedIn</h1>
+            <p>Connect with me:</p>
+            <a href="https://linkedin.com/" target="_blank">Open LinkedIn</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="contact" class="section">
+            <h1>Contact Me</h1>
+            <p>Email: example@gmail.com</p>
+            <p>Phone: 1234567890</p>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
