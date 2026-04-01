@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+}
+
+/* LOGIN */
+.container {
+    width: 300px;
+    margin: 150px auto;
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    animation: fadeIn 1s ease;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #00c6ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0072ff;
+}
+
+/* PORTFOLIO */
+.hidden {
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    animation: slideIn 1s ease;
+}
+
+.sidebar button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 40px;
+}
+
+/* SECTIONS */
+.section {
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {transform: translateX(-200px);}
+    to {transform: translateX(0);}
+}
