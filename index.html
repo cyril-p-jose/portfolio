@@ -1,70 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Cyril Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyril P Jose | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Cyril P Jose – B.Tech Computer Science student at SJCET Palai. Explore projects, skills, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- LOGIN PAGE -->
-<div id="loginPage" class="container">
-    <h2>Welcome Cyril</h2>
-    <form id="loginForm">
-        <input type="email" id="email" placeholder="Enter Email" required>
-        <input type="text" id="phone" placeholder="Enter Phone Number" required>
-        <button type="submit">Login</button>
-    </form>
-    <p id="errorMsg"></p>
-</div>
-
-<!-- PORTFOLIO PAGE -->
-<div id="portfolioPage" class="hidden">
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Cyril</h2>
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('github')">GitHub</button>
-        <button onclick="showSection('linkedin')">LinkedIn</button>
-        <button onclick="showSection('contact')">Contact</button>
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-    <!-- Content -->
-    <div class="content">
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <div id="loginPage" class="login-wrapper">
+        <div class="login-card">
+            <div class="login-avatar">
+                <span>C</span>
+            </div>
+            <h2 class="login-title">Welcome Back</h2>
+            <p class="login-subtitle">Sign in to view the portfolio</p>
 
-        <!-- HOME -->
-        <div id="home" class="section active">
-            <img src="cyril.jpg" class="profile-img">
-            <h1>Cyril P Jose</h1>
-            <p>B.Tech Computer Science</p>
-            <p>St. Joseph's College of Engineering and Technology,Palai</p>
+            <form id="loginForm" autocomplete="off">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email Address</label>
+                    <span class="input-icon">✉</span>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label for="phone">Phone Number</label>
+                    <span class="input-icon">📱</span>
+                </div>
+                <p id="errorMsg" class="error-msg"></p>
+                <button type="submit" id="loginBtn">
+                    <span class="btn-text">Login</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </form>
         </div>
-
-        <!-- GITHUB -->
-        <div id="github" class="section">
-            <h1>GitHub Profile</h1>
-            <p>Visit my projects:</p>
-            <a href="https://github.com/cyril-p-jose" target="_blank">Open GitHub</a>
-        </div>
-
-        <!-- LINKEDIN -->
-        <div id="linkedin" class="section">
-            <h1>LinkedIn</h1>
-            <p>Connect with me:</p>
-            <a href="https://www.linkedin.com/in/cyril-p-jose-24889737a/?skipRedirect=true" target="_blank">Open LinkedIn</a>
-        </div>
-
-        <!-- CONTACT -->
-        <div id="contact" class="section">
-            <h1>Contact Me</h1>
-            <p>Email: cyrilpjose2025@gmail.com</p>
-            <p>Phone: 9446265371</p>
-        </div>
-
     </div>
-</div>
 
-<script src="script.js"></script>
+    <!-- ==================== PORTFOLIO PAGE ==================== -->
+    <div id="portfolioPage" class="portfolio-wrapper hidden">
+
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <span class="mobile-logo">CP</span>
+            <button id="hamburgerBtn" class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">C</div>
+                <p class="sidebar-name">Cyril P Jose</p>
+                <p class="sidebar-role">CS Student</p>
+            </div>
+
+            <ul class="nav-list">
+                <li><button class="nav-btn active" onclick="showSection('home', this)" id="nav-home">
+                        <span class="nav-icon">🏠</span><span class="nav-label">Home</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('education', this)" id="nav-education">
+                        <span class="nav-icon">🎓</span><span class="nav-label">Education</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('skills', this)" id="nav-skills">
+                        <span class="nav-icon">⚡</span><span class="nav-label">Skills</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('projects', this)" id="nav-projects">
+                        <span class="nav-icon">🗂️</span><span class="nav-label">Projects</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('github', this)" id="nav-github">
+                        <span class="nav-icon">🐙</span><span class="nav-label">GitHub</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('linkedin', this)" id="nav-linkedin">
+                        <span class="nav-icon">💼</span><span class="nav-label">LinkedIn</span>
+                    </button></li>
+                <li><button class="nav-btn" onclick="showSection('contact', this)" id="nav-contact">
+                        <span class="nav-icon">📬</span><span class="nav-label">Contact</span>
+                    </button></li>
+            </ul>
+
+            <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+        </nav>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- HOME -->
+            <section id="home" class="section active">
+                <div class="home-inner">
+                    <div class="profile-photo-wrapper">
+                        <img src="cyril.jpg" alt="Cyril P Jose" class="profile-photo"
+                            onerror="this.style.display='none'; document.getElementById('profileFallback').style.display='flex'">
+                        <div id="profileFallback" class="profile-fallback" style="display:none">C</div>
+                        <div class="profile-ring"></div>
+                    </div>
+                    <div class="home-text">
+                        <p class="home-greeting">Hello, I'm</p>
+                        <h1 class="home-name">Cyril P Jose</h1>
+                        <p class="home-role">
+                            <span id="typingText"></span><span class="cursor">|</span>
+                        </p>
+                        <p class="home-college">📍 St. Joseph's College of Engineering and Technology, Palai</p>
+                        <div class="home-tags">
+                            <span class="tag">B.Tech CS</span>
+                            <span class="tag">Developer</span>
+                            <span class="tag">Problem Solver</span>
+                        </div>
+                        <div class="home-actions">
+                            <button class="cta-btn primary"
+                                onclick="showSection('projects', document.getElementById('nav-projects'))">
+                                View Projects
+                            </button>
+                            <button class="cta-btn secondary"
+                                onclick="showSection('contact', document.getElementById('nav-contact'))">
+                                Contact Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section id="education" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Education</h1>
+                    <p class="section-subtitle">My academic journey</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card glass-card">
+                            <span class="timeline-year">2022 – 2026</span>
+                            <h3>B.Tech in Computer Science &amp; Engineering</h3>
+                            <p class="timeline-inst">St. Joseph's College of Engineering and Technology, Palai</p>
+                            <p class="timeline-desc">Pursuing a Bachelor's degree in Computer Science with focus on
+                                software development, data structures, and algorithms.</p>
+                            <span class="badge badge-active">Currently Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card glass-card">
+                            <span class="timeline-year">2020 – 2022</span>
+                            <h3>Higher Secondary Education (Class XII)</h3>
+                            <p class="timeline-inst">Kerala State Board</p>
+                            <p class="timeline-desc">Completed Higher Secondary with Science stream (Physics, Chemistry,
+                                Mathematics, Computer Science).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card glass-card">
+                            <span class="timeline-year">Until 2020</span>
+                            <h3>Secondary Education (Class X)</h3>
+                            <p class="timeline-inst">Kerala State Board</p>
+                            <p class="timeline-desc">Completed secondary schooling with distinction.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Skills</h1>
+                    <p class="section-subtitle">Technologies I work with</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category glass-card">
+                        <h3 class="skill-cat-title">🌐 Web Development</h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-label"><span>HTML &amp; CSS</span><span>85%</span></div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-label"><span>JavaScript</span><span>70%</span></div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="70"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card">
+                        <h3 class="skill-cat-title">💻 Programming Languages</h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-label"><span>Python</span><span>80%</span></div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-label"><span>C / C++</span><span>75%</span></div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-bar-label"><span>Java</span><span>65%</span></div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="65"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card">
+                        <h3 class="skill-cat-title">🛠️ Tools &amp; Platforms</h3>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Git</span>
+                            <span class="tech-chip">GitHub</span>
+                            <span class="tech-chip">VS Code</span>
+                            <span class="tech-chip">Linux</span>
+                            <span class="tech-chip">MySQL</span>
+                            <span class="tech-chip">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card">
+                        <h3 class="skill-cat-title">🧠 Core Concepts</h3>
+                        <div class="tech-chips">
+                            <span class="tech-chip">DSA</span>
+                            <span class="tech-chip">OOP</span>
+                            <span class="tech-chip">DBMS</span>
+                            <span class="tech-chip">OS</span>
+                            <span class="tech-chip">Networking</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Projects</h1>
+                    <p class="section-subtitle">Things I've built</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card glass-card">
+                        <div class="project-top">
+                            <span class="project-icon">🌐</span>
+                            <div class="project-links">
+                                <a href="https://github.com/cyril-p-jose" target="_blank" class="proj-link"
+                                    title="GitHub">⧉</a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-desc">A personal portfolio website with login authentication, smooth
+                            animations, glassmorphism design, and multiple content sections.</p>
+                        <div class="project-tags">
+                            <span class="proj-tag">HTML</span>
+                            <span class="proj-tag">CSS</span>
+                            <span class="proj-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-card glass-card">
+                        <div class="project-top">
+                            <span class="project-icon">🤖</span>
+                            <div class="project-links">
+                                <a href="https://github.com/cyril-p-jose" target="_blank" class="proj-link"
+                                    title="GitHub">⧉</a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Student Result Management System</h3>
+                        <p class="project-desc">A database-backed system to manage and display student academic results
+                            with role-based access for students and admins.</p>
+                        <div class="project-tags">
+                            <span class="proj-tag">Python</span>
+                            <span class="proj-tag">MySQL</span>
+                            <span class="proj-tag">DBMS</span>
+                        </div>
+                    </div>
+                    <div class="project-card glass-card">
+                        <div class="project-top">
+                            <span class="project-icon">📊</span>
+                            <div class="project-links">
+                                <a href="https://github.com/cyril-p-jose" target="_blank" class="proj-link"
+                                    title="GitHub">⧉</a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">DSA Visualizer</h3>
+                        <p class="project-desc">An interactive tool to visualize common data structures and sorting
+                            algorithms in real time to aid learning.</p>
+                        <div class="project-tags">
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">HTML Canvas</span>
+                            <span class="proj-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GITHUB -->
+            <section id="github" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">GitHub</h1>
+                    <p class="section-subtitle">Check out my open source work</p>
+                </div>
+                <div class="social-card glass-card github-card">
+                    <div class="social-card-icon github-icon">🐙</div>
+                    <h2>cyril-p-jose</h2>
+                    <p class="social-card-desc">Explore my repositories, contributions, and open source projects on
+                        GitHub.</p>
+                    <div class="github-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Repositories</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Active</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/cyril-p-jose" target="_blank" class="social-link-btn github-btn">
+                        View GitHub Profile →
+                    </a>
+                </div>
+            </section>
+
+            <!-- LINKEDIN -->
+            <section id="linkedin" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">LinkedIn</h1>
+                    <p class="section-subtitle">Let's connect professionally</p>
+                </div>
+                <div class="social-card glass-card linkedin-card">
+                    <div class="social-card-icon linkedin-icon">💼</div>
+                    <h2>Cyril P Jose</h2>
+                    <p class="social-card-desc">B.Tech Computer Science student | Passionate about software development
+                        and technology.</p>
+                    <div class="linkedin-info">
+                        <p>📍 Kerala, India</p>
+                        <p>🎓 SJCET Palai</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/cyril-p-jose-24889737a/" target="_blank"
+                        class="social-link-btn linkedin-btn">
+                        Connect on LinkedIn →
+                    </a>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Contact</h1>
+                    <p class="section-subtitle">Let's get in touch</p>
+                </div>
+                <div class="contact-grid">
+                    <a href="mailto:cyrilpjose2025@gmail.com" class="contact-card glass-card">
+                        <span class="contact-icon">✉️</span>
+                        <h3>Email</h3>
+                        <p>cyrilpjose2025@gmail.com</p>
+                    </a>
+                    <a href="tel:9446265371" class="contact-card glass-card">
+                        <span class="contact-icon">📞</span>
+                        <h3>Phone</h3>
+                        <p>+91 9446265371</p>
+                    </a>
+                    <a href="https://github.com/cyril-p-jose" target="_blank" class="contact-card glass-card">
+                        <span class="contact-icon">🐙</span>
+                        <h3>GitHub</h3>
+                        <p>cyril-p-jose</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyril-p-jose-24889737a/" target="_blank"
+                        class="contact-card glass-card">
+                        <span class="contact-icon">💼</span>
+                        <h3>LinkedIn</h3>
+                        <p>Cyril P Jose</p>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
