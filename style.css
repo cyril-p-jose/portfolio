@@ -1096,3 +1096,18 @@ button { cursor: pointer; font-family: inherit; }
 
   .home-name { font-size: 1.8rem; }
 }
+/* Footer */
+.footer {
+  padding: 30px 0 46px;
+  color: var(--muted2);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer__small {
+  font-size: 13px;
+}
