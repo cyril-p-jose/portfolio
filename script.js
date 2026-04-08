@@ -2,9 +2,7 @@
    CYRIL P JOSE — PORTFOLIO  |  script.js
    ===================================================== */
 
-/* ─── Hardcoded credentials ─────────────────────────── */
-const VALID_EMAIL = "cyrilpjose2025@gmail.com";
-const VALID_PHONE = "9446265371";
+
 
 /* ─── Typing animation strings ──────────────────────── */
 const ROLES = [
@@ -53,11 +51,7 @@ function initLogin() {
       return;
     }
 
-    /* ── Check credentials ── */
-    if (email !== VALID_EMAIL || phone !== VALID_PHONE) {
-      showError(errorMsg, "⚠ Invalid credentials. Access denied.");
-      return;
-    }
+  
 
     /* ── Success: hide login, show portfolio ── */
     errorMsg.textContent = "";
